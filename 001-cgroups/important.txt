@@ -1,0 +1,51 @@
+1. Identity & membership
+
+cgroup.procs
+List of PIDs in this cgroup
+Writing a PID here moves the process
+
+cgroup.controllers
+What controllers exist on the system
+
+cgroup.subtree_control
+What controllers children are allowed to use
+
+
+
+2.CPU control (performance & throttling)
+
+cpu.max
+The actual CPU limit
+Example: 50000 100000 = 0.5 CPU
+
+cpu.stat
+Shows throttling and usage
+nr_throttled > 0
+
+cpu.pressure
+Scheduler pain detector
+
+
+3.Memory control (OOM reality)
+
+memory.max
+Hard memory limit
+Cross it → OOM kill inside the cgroup
+
+memory.current
+Current memory usage
+
+memory.stat
+Breakdown of memory usage
+Required for real OOM debugging
+
+memory.pressure
+Memory contention, even without OOMs
+
+
+4. Process safety
+
+This answers: can this thing fork-bomb me?
+
+pids.max
+Maximum processes allowed

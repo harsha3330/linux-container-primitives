@@ -1,0 +1,57 @@
+clone(2) and unshare(2) --> syscalls
+CLONE_NEW
+
+
+clone -->  new process to create new ns 
+unshare --> for existing process to create new ns
+
+
+You do not “create” namespaces directly.
+You start a process, and the kernel places it into new namespaces.
+
+No process → no namespace.
+
+
+
+nsenter() --> to enter into new namespace
+
+
+example commands : 
+
+sudo unshare --net( type of namespace) bash
+readlink /proc/$$/ns/* 
+
+
+
+You do not add a process to a namespace.
+You start a process and tell the kernel to attach it to an existing namespace.
+
+That attachment happens via setns().
+Humans usually access it through nsenter
+
+
+
+The core rule (burn this in)
+
+A new process inherits its parent’s namespaces by default.
+
+Linux is conservative.
+It only creates new namespaces when you explicitly ask for them.
+
+
+
+
+****
+When DOES a new namespace appear?
+
+Only when one of these happens:
+
+clone() is called with namespace flags
+Example:
+CLONE_NEWNET
+CLONE_NEWPID
+
+unshare() is called before fork/exec
+
+A process calls setns() to join an existing namespace
+No flag → no new namespace. Period.

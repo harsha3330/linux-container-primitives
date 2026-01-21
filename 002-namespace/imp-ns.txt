@@ -1,0 +1,15 @@
+Network Namespace : 
+Controls network devices, IPs, ports, routing tables, network interfaces , routing rules.
+Each container gets its own fake network stack.
+
+1. frequently used in containers
+2. veth device can connect different namespace
+3. docker run uses separete network ns per container
+4. multiple containers can share a network namespace
+
+
+
+Mount Namespace: 
+1.used for giving container their own filesystem
+2.container image is mounted as root filesystem
+3.volumes to share data between containers 

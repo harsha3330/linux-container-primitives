@@ -1,0 +1,33 @@
+Control group 
+
+1. linux system for tracking , group , limiting , organizing the processes that run 
+2. every process is tracked with cgroups
+3. typically used to associate processes with resources
+4. limit or priortize resource utizilation
+
+Linux groups processes into a cgroup. That group has rules. The kernel enforces them continuously.
+
+
+
+In cgroups, subsystems (modern name: controllers) are the individual resource governors. 
+Each one controls one specific type of resource. No philosophy, no abstraction fluff—one knob, one resource
+
+Key controllers :
+cpu – caps or weights CPU time
+memory – hard limits, OOM control
+pids – limits number of processes
+blkio / io – disk read/write throttling
+cpuset – pin workloads to specific CPU cores
+network 
+devices 
+
+
+
+cgroup filesystem : sys/fs/cgroup
+process file : cgroups.procs
+
+
+Too see the current see group : cat /proc/self/cgroup
+
+
+cat /proc/processid/cgroup

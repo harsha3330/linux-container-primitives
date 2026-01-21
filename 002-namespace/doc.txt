@@ -1,0 +1,20 @@
+Namespaces : 
+
+** A Linux namespace decides what a process is allowed to see
+
+Same machine. Same kernel.
+Different processes get different views of reality.
+
+1. main concerned with visibility of resources and access control 
+2. namespaces can make it appear to the process that it has its own isolated copy of resources
+3. namespaces can map outside a ns to resource in it 
+
+Available namespaces : 
+
+1. network
+2. filesystem or mount
+3. process
+4. inter process communication
+5. user and groups
+6. hostname and domain namespace
+7. cgroup

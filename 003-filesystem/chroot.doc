@@ -1,0 +1,7 @@
+What chroot actually is (no mythology)
+
+chroot means change root.
+
+It tells a process:
+
+“Pretend this directory is /.”

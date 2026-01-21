@@ -1,0 +1,24 @@
+Filesystem Images : 
+
+
+1. Images are representation of filesystems
+2. popular for virtualization and container system
+3. docker helped popularize the concept of layes 
+4. Fancy Tar/Zip files with layers 
+
+
+Layers : 
+1. layers are mechanism of composing together files and directories
+2. and then layers are merged together to get unified view 
+
+
+Union Filesystem : 
+1. combined view of 2 or more filesystems 
+2. popular in container runtime like docker 
+3. efficent use of storage when making minor image modification
+
+Overlay Filesystem : joins two dirs (upper and lower ) to form a union ( uses filename to describe files)
+when writing to overlay to same file , upper layer is written 
+
+
+Docker overlay driver : var/lib/docker/overlay
