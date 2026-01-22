@@ -1,14 +1,7 @@
 #!/bin/bash
 
-TOKEN=$(curl -s -X PUT "http://169.254.169.254/latest/api/token" \
-  -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
-
-INSTANCE_ID=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" \
-  http://169.254.169.254/latest/meta-data/instance-id)
-
-REGION=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" \
-  http://169.254.169.254/latest/dynamic/instance-identity/document \
-  | grep region | awk -F\" '{print $4}')
+INSTANCE_ID="i-01841bb40caf75d3f"
+REGION="ap-south-1"
 
 aws ec2 stop-instances \
   --instance-ids "$INSTANCE_ID" \
