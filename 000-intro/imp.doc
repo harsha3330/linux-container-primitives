@@ -1,0 +1,12 @@
+1. If cgroups control the resources that a process can use, namespaces control what it
+can see
+
+2. lsns command to see the available ns 
+
+3. namespace : sudo unshare --pid --fork sh
+
+4. chroot : sudo chroot alpine (directory) ls (only a command)
+
+5. Combining chroot and ns
+
+sudo unshare --pid --fork chroot alpine sh
