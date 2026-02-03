@@ -1,0 +1,29 @@
+Problem : 
+
+You have three applications on the same machine: 1)a Go server 2)a Node.js app 3)a C++ binary
+
+Each of them needs:
+
+/bin - - in the end most of these are binaries and executables
+/lib
+/usr/lib
+/etc
+runtime libraries
+config files
+So they all need… a Linux filesystem underneath
+
+Solution : 
+/bin/bash → same everywhere
+/lib/libc.so → same
+/usr/lib/* → same
+
+What changes?
+Go app writes logs
+Node app writes node_modules/.cache
+C++ app maybe writes temp files
+App-specific configs
+
+
+Overlay FIlesystem : 
+
+lower layer (common linux files), upper layer (application files) , merged view (the applications see)
